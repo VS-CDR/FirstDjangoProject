@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<table border="1px">
+    <tr>
+        <td>Дата</td>
+        <td>Время</td>
+        <td>Входная строка</td>
+        <td>Кол-во слов</td>
+        <td>Кол-во символов</td>
+        <td>Пользователь</td>
+    </tr>
+    {% for record in history %}
+    <tr>
+        <td>{{ record.date }}</td>
+        <td>{{ record.time }}</td>
+        <td>{{ record.input_str }}</td>
+        <td>{{ record.cnt_words }}</td>
+        <td>{{ record.cnt_symbols }}</td>
+        <td>{{ record.client }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

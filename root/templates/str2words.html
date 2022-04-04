@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<h1>Здесь вы можете разбить строку на слова</h1>
+
+<form method="POST" action="/str2words/">
+    {% csrf_token %}
+    {{form.string.label}}: {{form.string}}<br>
+    <input type="submit" value="Разбить">
+</form>
+
+<hr>
+<p>Всего слов в строке:</p>{{ cnt_words }}<br>
+<p>Всего чисел в строке:</p>{{ cnt_nums }}<br>
+<hr>
+
+{% if cnt_words %}
+{% for word in words %}
+<ul>
+    <li>{{word}}</li>
+</ul>
+{% endfor %}
+{% endif %}
+{% if cnt_nums %}
+{% for num in nums %}
+<ul>
+    <li>{{num}}</li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endblock %}

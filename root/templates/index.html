@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Курс "Промышленное программирование"</h1>
+<ul>
+    <li>{{ class }}</li>
+    <li>Тема: {{ theme }}</li>
+    <li>Сегодня {{ date }}</li>
+</ul>
+{% endblock %}

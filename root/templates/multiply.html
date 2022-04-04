@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<ul>
+    {% if mul_table %}
+    {% for string in mul_table %}
+    <li>{{ string }}</li>
+    {% endfor %}
+    {% else %}
+    Значение для умножения не задано
+    {% endif %}
+</ul>
+{% endblock %}
