@@ -68,6 +68,7 @@ def multiply(request):
             mul_table.append(f'{mul} * {arg} = {mul * arg}')
     except TypeError:
         mul_table.clear()
+
     context = {'mul_table': mul_table, 'pagename': 'Таблица выражения'}
     return render(request, 'multiply.html', context)
 
@@ -100,10 +101,7 @@ def expression(request):
     op = ''
     for i in range(1, len(cnt_exp)):
         if not cnt_exp[i].isdigit():
-            if cnt_exp[i] == '+':
-                op = '+'
-            elif cnt_exp[i] == '-':
-                op = '-'
+            op = cnt_exp[i]
         else:
             if op == '+':
                 cnt_res += int(cnt_exp[i])
@@ -130,7 +128,9 @@ def history(request):
     :type request: :class: 'django.http.HttpRequest'
     :return: html страница
     """
-    context = {'history': CalcHistory.objects.all(), 'pagename': 'История вычислений'}
+
+    context = {'history': CalcHistory.objects.all(),
+               'pagename': 'История вычислений'}
     return render(request, 'history.html', context)
 
 
@@ -184,7 +184,9 @@ def str_history(request):
     :type request: :class: 'django.http.HttpRequest'
     :return: html страница
     """
-    context = {'history': StrHistory.objects.filter(client_id=request.user), 'pagename': 'История анализа строк'}
+
+    context = {'history': StrHistory.objects.filter(client_id=request.user),
+               'pagename': 'История анализа строк'}
     return render(request, 'str_history.html', context)
 
 
