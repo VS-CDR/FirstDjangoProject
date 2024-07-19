@@ -1,3 +1,3 @@
-# First-web-site-on-Django
+# First-Django-web-app
 
-I developed this site as part of an industrial development course. It was my first introduction to django
+I developed this site as part of an "industrial development" course.
